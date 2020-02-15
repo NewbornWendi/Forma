@@ -44,14 +44,14 @@ function email1($email){
 
 // csv
 function csv($name,$telephone,$email,$combobox,$checkbox){
-    $FileCsv = fopen('../file/file.csv','w+');
+    $FileCsv = fopen('file/file.csv','w+');
     $qwerty=[$name,$telephone,$email,implode('; ',$combobox), implode('; ',$checkbox)];
     fputcsv($FileCsv, $qwerty, '; ');   
     fclose($FileCsv);
 }
 
 function tableCsv(){
-    $FileRead = fopen('../file/file.csv','r');
+    $FileRead = fopen('file/file.csv','r');
     while(($FileCsv = fgetcsv($FileRead, 1000, "; ")) !== FALSE){
                
         foreach($FileCsv as $asdfg){
@@ -65,7 +65,7 @@ function tableCsv(){
 
 // json
 function json($name,$telephone,$email,$combobox,$checkbox){
-    $FileJson = file_get_contents('../file/file.json');
+    $FileJson = file_get_contents('file/file.json');
     $ListJson = json_decode($FileJson,TRUE);
     unset($FileJson);
     $ListJson = [
@@ -76,14 +76,14 @@ function json($name,$telephone,$email,$combobox,$checkbox){
         "list"=>implode('; ',$checkbox),
     ];
         
-    file_put_contents('../file/file.json',json_encode($ListJson, JSON_UNESCAPED_UNICODE));
+    file_put_contents('file/file.json',json_encode($ListJson, JSON_UNESCAPED_UNICODE));
     unset($ListJson);
 }
 // json
 
 // txt
 function txt($name,$telephone,$email,$combobox,$checkbox){
-    $FileTxt = fopen('../file/file.txt','w+');
+    $FileTxt = fopen('file/file.txt','w+');
     $zxcvb=[$name,$telephone,$email,implode(', ',$combobox), implode(', ',$checkbox)];
     foreach($zxcvb as $zxcvb1){
         fputs($FileTxt,$zxcvb1.'; ');

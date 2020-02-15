@@ -1,2 +1,0 @@
-# Forma
-Forma by NikitaShusharin
